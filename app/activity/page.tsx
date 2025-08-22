@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 export default function ActivityPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <section className="pt-16 py-32 bg-background">

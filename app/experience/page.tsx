@@ -85,7 +85,7 @@ const skills = [
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <section className="pt-16 py-32 bg-background">

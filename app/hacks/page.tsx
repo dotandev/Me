@@ -114,7 +114,7 @@ const hackathonStats = [
 export default function HacksPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <section className="pt-16 py-32 bg-background">

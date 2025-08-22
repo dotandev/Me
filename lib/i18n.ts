@@ -27,7 +27,7 @@ export const translations = {
     "nav.portfolio": "Portfolio",
 
     // Homepage
-    "home.hero.title": "BUILDING THE",
+    "home.hero.title": "HELPING IN BUILDING THE",
     "home.hero.accent": "FUTURE",
     "home.hero.subtitle": "OF TECHNOLOGY",
     "home.hero.description":

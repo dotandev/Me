@@ -16,7 +16,7 @@ export function HomePage() {
     <div className="min-h-screen relative">
       <ParticleBackground />
       <FloatingElements />
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section - Enhanced with animations */}
       <section className="pt-16 min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
@@ -55,18 +55,21 @@ export function HomePage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
                 <MagneticButton
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold group hover:scale-105 transition-all duration-300"
+                  className="bg-primary cursor-pointer text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold group hover:scale-105 transition-all duration-300"
+                  onClick={() => (window.location.href = "/projects")}  
                 >
                   {t("home.hero.cta.projects")}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </MagneticButton>
-                <MagneticButton
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-border hover:bg-accent hover:text-accent-foreground px-8 py-4 text-lg font-semibold bg-transparent hover:scale-105 transition-all duration-300"
-                >
-                  {t("home.hero.cta.resume")}
-                </MagneticButton>
+                <a href="/resume.pdf" download>
+                  <MagneticButton
+                    variant="outline"
+                    size="lg"
+                    className="border-2 cursor-pointer border-border hover:bg-accent hover:text-accent-foreground px-8 py-4 text-lg font-semibold bg-transparent hover:scale-105 transition-all duration-300"
+                  >
+                    {t("home.hero.cta.resume")}
+                  </MagneticButton>
+                </a>
               </div>
             </ScrollReveal>
 
@@ -206,7 +209,7 @@ export function HomePage() {
                 },
               ].map((capability, index) => (
                 <ScrollReveal key={index} direction="up" delay={index * 100}>
-                  <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border hover:border-accent/50 relative overflow-hidden">
+                  <Card className="group cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border hover:border-accent/50 relative overflow-hidden">
                     {/* Animated background on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -245,7 +248,7 @@ export function HomePage() {
                 { number: "50+", key: "home.stats.certifications" as const },
               ].map((stat, index) => (
                 <div key={index} className="text-center group">
-                  <div className="text-4xl sm:text-5xl font-heading font-black text-accent mb-2 group-hover:scale-125 transition-all duration-300 cursor-default">
+                  <div className="text-4xl sm:text-5xl font-heading font-black text-accent mb-2 group-hover:scale-125 transition-all duration-300 cursor-pointer">
                     {stat.number}
                   </div>
                   <div className="text-muted-foreground font-medium">{t(stat.key)}</div>
@@ -259,12 +262,13 @@ export function HomePage() {
       {/* Footer CTA with enhanced animations */}
       <ScrollReveal direction="up" delay={200}>
         <section className="py-20 bg-background border-t border-border">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="curso max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-heading font-bold text-3xl sm:text-4xl text-foreground mb-6">{t("home.cta.title")}</h2>
             <p className="text-xl text-muted-foreground mb-8">{t("home.cta.description")}</p>
             <MagneticButton
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
+              onClick={() => (window.location.href = "mailto:jesusdotdev@gmail.com")}
+              className="cursor-pointer bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
             >
               {t("home.cta.button")}
               <Mail className="ml-2 w-5 h-5" />

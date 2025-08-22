@@ -1,16 +1,51 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Montserrat, Open_Sans } from "next/font/google"
+import { Itim } from "next/font/google"
 import { LanguageProvider } from "@/contexts/language-context"
 import "./globals.css"
+import { RootLayout as CustomLayout } from "./rootlayout"
 
-const montserrat = Montserrat({ subsets: ["latin"] })
-const openSans = Open_Sans({ subsets: ["latin"] })
+const itim = Itim(
+  {
+    subsets: ["vietnamese"],
+    weight: "400"
+  }
+);
+
+// <head>
+// <style>{`
+// html {
+// font-family: ${montserrat.style.fontFamily}, ${openSans.style.fontFamily};
+// --font-sans: ${openSans.variable};
+// --font-mono: ${openSans.variable}; /* Assuming Open Sans is used for mono as well */
+// }
+// `}</style>
+// </head>
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Portfolio @Dotandev",
+  description: "A comprehensive portfolio showcasing my projects, skills, and experiences.",
+  generator: "@dotandev",
+  applicationName: "Dotandev Portfolio",
+  keywords: ["portfolio", "web development", "projects", "skills", "Dotandev"],
+  authors: [{ name: "Dotandev", url: "https://dotan.dev" }],
+  creator: "Dotandev",
+  openGraph: {
+    title: "Portfolio @Dotandev",
+    description: "A comprehensive portfolio showcasing my projects, skills, and experiences.",
+    url: "https://dotan.dev",
+    siteName: "Dotandev Portfolio",
+    images: [
+      {
+        url: "https://dotan.dev/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Dotandev Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 }
 
 export default function RootLayout({
@@ -19,18 +54,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${openSans.variable} antialiased`}>
-      <head>
-        <style>{`
-html {
-  font-family: ${montserrat.style.fontFamily}, ${openSans.style.fontFamily};
-  --font-sans: ${openSans.variable};
-  --font-mono: ${openSans.variable}; /* Assuming Open Sans is used for mono as well */
-}
-        `}</style>
-      </head>
-      <body className="font-sans bg-background text-foreground">
-        <LanguageProvider>{children}</LanguageProvider>
+    <html lang="en" className={`${itim.className} antialiased`}>
+      <body className={`${itim.className} font-sans bg-background text-foreground`}>
+        <LanguageProvider>
+          <CustomLayout>
+            {children}
+          </CustomLayout>
+        </LanguageProvider>
       </body>
     </html>
   )

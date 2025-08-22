@@ -120,7 +120,7 @@ const categories = [
 export default function ResearchPage() {
   return (
     <div className="min-h-screen">
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Hero Section */}
       <section className="pt-16 py-32 bg-background">
