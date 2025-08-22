@@ -701,6 +701,40 @@ const timeline = [
     location: "Remote, Korea",
     roles: [
       {
+        title: "QA Engineer",
+        duration: "Aug 2025 – Present",
+        description: `
+          Engineered backend architectures for **4 production-grade projects** — Ratela, Dagit, Incheon Heroes, and Voice Korea — using **Axum (Rust)** with clean REST and WebSocket interfaces integrated into Dioxus frontends.
+        `,
+        achievements: [
+          "Implemented complex relational data models with **PostgreSQL libraries** to handle **multi-tenant workflows** and **property hierarchies**.",
+          "Integrated **AWS (S3, RDS, Lambda, CloudFront)** ensuring **scalable deployments with minimal latency**.",
+          "Integrated **Kaia Wallet** into Incheon Heroes for **secure blockchain identity verification**.",
+          "Designed **graph-based backend algorithms** for dynamic content models in Ratela’s pipelines.",
+          "Developed modular **APIs in Axum**, maintaining data integrity and reusable business logic.",
+          "Built **backend test suites** (Playwright + custom benchmarking) ensuring responsiveness under high concurrency.",
+          "Orchestrated **CI/CD pipelines (GitHub Actions)** with **85%+ success rate** across environments.",
+        ],
+        technologies: ["Rust", "Axum", "PostgreSQL", "AWS", "Kaia Wallet", "CI/CD"],
+      },
+      {
+        title: "Software Engineer",
+        duration: "Apr 2025 – Jul 2025",
+        description: `
+          Engineered backend architectures for **4 production-grade projects** — Ratela, Dagit, Incheon Heroes, and Voice Korea — using **Axum (Rust)** with clean REST and WebSocket interfaces integrated into Dioxus frontends.
+        `,
+        achievements: [
+          "Implemented complex relational data models with **PostgreSQL libraries** to handle **multi-tenant workflows** and **property hierarchies**.",
+          "Integrated **AWS (S3, RDS, Lambda, CloudFront)** ensuring **scalable deployments with minimal latency**.",
+          "Integrated **Kaia Wallet** into Incheon Heroes for **secure blockchain identity verification**.",
+          "Designed **graph-based backend algorithms** for dynamic content models in Ratela’s pipelines.",
+          "Developed modular **APIs in Axum**, maintaining data integrity and reusable business logic.",
+          "Built **backend test suites** (Playwright + custom benchmarking) ensuring responsiveness under high concurrency.",
+          "Orchestrated **CI/CD pipelines (GitHub Actions)** with **85%+ success rate** across environments.",
+        ],
+        technologies: ["Rust", "Axum", "PostgreSQL", "AWS", "Kaia Wallet", "CI/CD"],
+      },
+      {
         title: "Software Engineer - Contract",
         duration: "Feb 2025 – Apr 2025",
         description: `
@@ -716,6 +750,34 @@ const timeline = [
           "Orchestrated **CI/CD pipelines (GitHub Actions)** with **85%+ success rate** across environments.",
         ],
         technologies: ["Rust", "Axum", "PostgreSQL", "AWS", "Kaia Wallet", "CI/CD"],
+      },
+    ],
+  },
+  {
+    type: "break",
+    duration: "Jul 2024 – Feb 2025",
+    description:
+      "Took a career break to travel, rest, and focus on professional development.",
+  },
+  {
+    type: "company",
+    company: "Blockks",
+    location: "Lagos, Nigeria",
+    roles: [
+      {
+        title: "Software Engineer - Contract",
+        duration: "April 2024 – Jul 2024",
+        description: `
+          Led backend architecture for **wallet and payment services**, handling over **₦50M+ in transactions** and serving **1,000+ beta users**.
+        `,
+        achievements: [
+          "Integrated **MAPLERAD** and **Risevest APIs** reducing onboarding from **48h → 10min**.",
+          "Deployed **Redis-backed microservices**, improving throughput by **60%** and reducing race-condition downtime by **~80%**.",
+          "Designed REST APIs in **Express + TypeScript**, enabling **real-time analytics** (+25% transaction frequency).",
+          "Modeled **hybrid schemas (MongoDB + PostgreSQL)** processing **30K+ events/day** with sub-100ms responses.",
+          "Adopted **TDD** and CI pipelines, cutting post-deployment bugs by **70%**.",
+        ],
+        technologies: ["Express", "TypeScript", "Redis", "MongoDB", "PostgreSQL", "CI/CD"],
       },
     ],
   },
@@ -742,12 +804,6 @@ const timeline = [
     ],
   },
   {
-    type: "break",
-    duration: "Aug 2024 – Sep 2025",
-    description:
-      "Took a career break to travel, pursue personal projects, and focus on professional development.",
-  },
-  {
     type: "company",
     company: "Tribal Prints",
     location: "Lagos, Nigeria",
@@ -769,12 +825,12 @@ const timeline = [
       },
     ],
   },
-  {
-    type: "break",
-    duration: "Aug 2024 – Sep 2025",
-    description:
-      "Took a career break to travel, pursue personal projects, and focus on professional development.",
-  },
+  // {
+  //   type: "break",
+  //   duration: "Aug 2024 – Sep 2025",
+  //   description:
+  //     "Took a career break to travel, pursue personal projects, and focus on professional development.",
+  // },
   {
     type: "company",
     company: "PeerHub",
@@ -850,13 +906,16 @@ function ExperienceTimeline() {
                               transition={{ delay: rIndex * 0.2 }}
                               className={clsx(
                                 "relative",
-                                rIndex % 2 === 0 ? "ml-2" : "ml-8"
+                                // rIndex % 2 === 0 ? "ml-2" : "ml-10",
+                                rIndex === 0 ? "ml-2" : "",
+                                rIndex === 1 ? "ml-10" : "",
+                                rIndex === 2 ? "ml-20" : ""
                               )}
                             >
                               {/* Slanted Connector */}
                               {rIndex > 0 && (
                                 <div className="absolute -left-6 top-3 flex items-center text-accent">
-                                  <div className="w-6 h-0.5 bg-accent transform -skew-y-6" />
+                                  <div className="w-9 h-0.5 bg-accent transform -skew-y-6" />
                                   <ArrowRight className="w-4 h-4 ml-1" />
                                 </div>
                               )}
