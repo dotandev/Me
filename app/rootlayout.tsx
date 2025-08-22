@@ -300,18 +300,18 @@ function Navigation({
             className="mt-px font-display text-5xl font-medium tracking-tight text-white">
             <NavigationRow>
                 <NavigationItem href="/about">About</NavigationItem>
-                <NavigationItem href="/volunteer">Volunteering</NavigationItem>
+                <NavigationItem href="/research">Research</NavigationItem>
             </NavigationRow>
             <NavigationRow>
                 <NavigationItem href="/projects">Projects</NavigationItem>
-                <NavigationItem href="/experience">Experience</NavigationItem>
-            </NavigationRow>
-            <NavigationRow>
                 <NavigationItem href="/hacks">Hacks</NavigationItem>
-                <NavigationItem href="/gallery">Gallery</NavigationItem>
             </NavigationRow>
             <NavigationRow>
+                <NavigationItem href="/experience">Experience</NavigationItem>
                 <NavigationItem href="/contact">Contact</NavigationItem>
+            </NavigationRow>
+            <NavigationRow>
+                <NavigationItem href="/activity">Activity</NavigationItem>
                 <NavigationItem href="/blog">Blog</NavigationItem>
             </NavigationRow>
         </nav>
