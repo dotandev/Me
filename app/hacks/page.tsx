@@ -1,8 +1,7 @@
-import { Navigation } from "@/components/navigation"
-import { Card, CardContent } from "@/components/ui/card"
+'use client'
+
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Github, ExternalLink, Clock, Trophy, Users } from "lucide-react"
+import HackathonTimeline from "./hacks"
 
 const hackathonProjects = [
   {
@@ -119,7 +118,7 @@ export default function HacksPage() {
       {/* Hero Section */}
       <section className="pt-16 py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center -mb-20">
             <h1 className="font-heading font-black text-5xl sm:text-7xl text-foreground mb-6">
               HACKATHON
               <br />
@@ -131,118 +130,60 @@ export default function HacksPage() {
               skills, and collaborative problem-solving in time-constrained environments.
             </p>
           </div>
-
-          {/* Hackathon Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {hackathonStats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-heading font-bold text-accent mb-2">{stat.value}</div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="pb-32 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {hackathonProjects.map((project, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border overflow-hidden"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-accent text-accent-foreground flex items-center gap-1">
-                      <Trophy className="w-3 h-3" />
-                      {project.placement}
-                    </Badge>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <Badge variant="outline" className="bg-background/80 backdrop-blur-sm">
-                      {project.prize}
-                    </Badge>
-                  </div>
-                </div>
-
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-bold text-xl mb-2 group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <div className="text-accent font-semibold mb-4">{project.hackathon}</div>
-
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      {project.duration}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      {project.team}
-                    </div>
-                  </div>
-
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    {project.links.github && (
-                      <Button size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                        <Github className="w-4 h-4" />
-                        Code
-                      </Button>
-                    )}
-                    {project.links.demo && (
-                      <Button size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                        <ExternalLink className="w-4 h-4" />
-                        Demo
-                      </Button>
-                    )}
-                    {project.links.devpost && (
-                      <Button size="sm" variant="outline" className="flex items-center gap-2 bg-transparent">
-                        <ExternalLink className="w-4 h-4" />
-                        DevPost
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl mb-6">Want to Hack Together?</h2>
-          <p className="text-xl text-primary-foreground/80 mb-8">
-            Looking for a hackathon teammate or organizing an event? Let's build something amazing in record time.
-          </p>
-          <Button
-            size="lg"
-            variant="secondary"
-            className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-4 text-lg font-semibold"
-          >
-            Let's Collaborate
-          </Button>
-        </div>
-      </section>
+      <div className="max-w-7xl mx-auto px-3 sm:px-3 lg:px-3">
+        <HackathonTimeline />
+      </div>
     </div>
   )
 }
+
+
+
+// 'use client'
+
+// import { BackgroundBeams } from "@/components/ui/background-beams";
+// import { Jua } from "next/font/google";
+// import { HacksHero } from "./hero";
+// import { Poem } from "@/components/sections/poem";
+// import { useEffect } from "react";
+// import HackathonTimeline from "./hacks";
+
+// const jua = Jua({
+//   weight: '400', // Can be set based on available options
+//   subsets: ['latin'], // Add any subsets you want
+//   display: 'swap',
+// });
+
+// const dynamicMetadata = {
+//   title: "Hacks - The Basic Portfolio.",
+//   description: "For Jesus, By Jesus, Of Jesus.",
+//   keywords: "Hacks, The Basic Portfolio, For Jesus, By Jesus, Of Jesus.",
+//   author: "The Basic Portfolio",
+// };
+
+// export default function Home() {
+//   useEffect(() => {
+//         document.title = dynamicMetadata.title;
+//         const descriptionMetaTag = document.querySelector('meta[name="description"]');
+//         const keywordsMetaTag = document.querySelector('meta[name="keywords"]');
+//         const authorMetaTag = document.querySelector('meta[name="author"]');
+//         if (descriptionMetaTag) descriptionMetaTag.setAttribute('content', dynamicMetadata.description);
+//         if (keywordsMetaTag) keywordsMetaTag.setAttribute('content', dynamicMetadata.keywords);
+//         if (authorMetaTag) authorMetaTag.setAttribute('content', dynamicMetadata.author);
+//       }, []);
+//   return (
+//     <main className={`${jua.className} relative`}>
+//       <HacksHero />
+//       <div className="mx-6">
+//       <HackathonTimeline />
+//       </div>
+//       <div className="ml-6 lg:-ml-1">
+//       <Poem firstLine={"some of those days, "} secondLine={"I made it to the stage. "} thirdLine={"with my team."} fourthLine={"some, I didn’t! "} fifthLine={"that’s the essence of a hack, then."} />
+//       </div>
+//       {/* <BackgroundBeams /> */}
+//     </main>
+//   );
+// }

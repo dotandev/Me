@@ -9,7 +9,7 @@ import {
     useRef,
     useState,
 } from 'react';
-import { GitHubLogoIcon, TableIcon } from '@radix-ui/react-icons';
+import { GitHubLogoIcon, TableIcon, BookmarkFilledIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -155,6 +155,10 @@ function Header({
         window.location.href = "https://github.com/dotandev"
     }
 
+    const handleCertificationClick = () => {
+        window.location.href = "/certifications"
+    }
+
     return (
         <Container>
             <div className="flex items-center justify-between">
@@ -167,16 +171,28 @@ function Header({
                     <Logo className="h-16" invert={invert} filled={logoHovered} />
                 </Link>
                 <div className="flex items-center gap-x-8">
-                    <button
-                        onClick={handleGithubClick}
-                        ref={toggleRef}
-                        className="bg-[#A25725] cursor-pointer hover:bg-[#bd7748] px-8 font-bold text-white rounded-3xl py-3 flex gap-4"
-                    >
-                        <span className="hidden sm:inline text-lg">Peek Github</span>
-                        <span className="sm:hidden">Github</span>
-                        {/* Peek Github */}
-                        <GitHubLogoIcon className="h-6 w-6" />
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <button
+                            onClick={handleCertificationClick}
+                            ref={toggleRef}
+                            className="bg-[#A25725] cursor-pointer hover:bg-[#bd7748] px-8 font-bold text-white rounded-3xl py-3 flex gap-4 justify-center items-center"
+                        >
+                            <span className="hidden sm:inline text-lg">Certifications</span>
+                            <span className="sm:hidden">Certs</span>
+                            <BookmarkFilledIcon className="h-6 w-6" />
+                        </button>
+
+                        <button
+                            onClick={handleGithubClick}
+                            ref={toggleRef}
+                            className="bg-[#A25725] cursor-pointer hover:bg-[#bd7748] px-8 font-bold text-white rounded-3xl py-3 flex gap-4 justify-center items-center"
+                        >
+                            <span className="hidden sm:inline text-lg">Peek Github</span>
+                            <span className="sm:hidden">Github</span>
+                            <GitHubLogoIcon className="h-6 w-6" />
+                        </button>
+                    </div>
+
 
                     {/* Navigation toggle */}
                     {/* <button
